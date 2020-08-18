@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Forth Web Page
+        </title>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+        </canvas>
+        <script>
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(95, 50, 40, 0, 2 * Math.PI);//in this we are using x,y,r,.. format to draw an arc
+            ctx.stroke();
+            </script>
+            <canvas id="myCanvas1" width="200" height="100" style="border:1px solid #000000;">
+            </canvas>
+            <script>
+                var c = document.getElementById("myCanvas1");
+                var ctx = c.getContext("2d");
+                ctx.font = "30px Arial";
+                ctx.fillText("Hello World", 10, 50);
+                ctx.strokeText("Hello World", 10, 90);
+            </script>
+            <canvas id="myCanvas2" width="200" height="100" style="border:1px solid #000000;">
+            </canvas>
+            <script>
+                var c = document.getElementById("myCanvas2");
+                var ctx = c.getContext("2d");
+                
+                // Create gradient
+                var grd = ctx.createLinearGradient(0, 0, 200, 0);
+                grd.addColorStop(0, "red");
+                grd.addColorStop(1, "blue");
+                
+                // Fill with gradient
+                ctx.fillStyle = grd;
+                ctx.fillRect(10, 10, 150, 80);
+            </script>
+            <canvas id="myCanvas3" width="200" height="100" style="border:1px solid #000000;">
+            </canvas>
+            <script>
+                var c = document.getElementById("myCanvas3");
+                var ctx = c.getContext("2d");
+                
+                // Create gradient
+                var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);//left,up,center contrast,right,bottom,center
+                grd.addColorStop(0, "red");
+                grd.addColorStop(1, "blue");
+                
+                // Fill with gradient
+                ctx.fillStyle = grd;
+                ctx.fillRect(10, 10, 150, 80);
+            </script>
+            <img src="D:\PES\python\Alita.jpeg" alt="No found" id="scream" width="100%" height="100%" onclick="mycanvas()">
+            <canvas id="myCanvas4" width="1000" height="1000" style="border:1px solid #000000;">
+            </canvas>
+            <script>
+                function mycanvas(){
+                var c = document.getElementById("myCanvas4");
+                var ctx = c.getContext("2d");
+                var img = document.getElementById("scream");
+                ctx.drawImage(img, 0, 0);}
+            </script><br>
+            <svg height="330" width="500">
+                <defs>
+                  <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(0, 0, 255);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <ellipse cx="300" cy="170" rx="135" ry="105" fill="url(#grad1)" />
+                <text fill="#ffffff" font-size="45" font-family="Verdana" x="220" y="179">Alexios</text>
+              </svg>
+              <!-- canvas is majorly used for game application but svg can be used to make the web more attractive-->
+              <br>
+              <video width="800px" height="800px" style="padding-left: 500px;padding-right: 500px;" controls>
+                <source src="D:\Appa\solutions.mp4" type="video/mp4">
+                
+              Your browser does not support the video tag.
+              </video>
+              <hr>
+              <div style="text-align:center"> 
+                <button onclick="playPause()">Play/Pause</button> 
+                <button onclick="makeBig()">Big</button>
+                <button onclick="makeSmall()">Small</button>
+                <button onclick="makeNormal()">Normal</button>
+                <br><br>
+                <video id="video1" width="420">
+                  <source src="D:\Appa\solutions.mp4" type="video/mp4">
+                  Your browser does not support HTML video.
+                </video>
+              </div> 
+              
+              <script> 
+              var myVideo = document.getElementById("video1"); 
+              
+              function playPause() { 
+                if (myVideo.paused) 
+                  myVideo.play(); 
+                else 
+                  myVideo.pause(); 
+              } 
+              
+              function makeBig() { 
+                  myVideo.width = 560; 
+              } 
+              
+              function makeSmall() { 
+                  myVideo.width = 320; 
+              } 
+              
+              function makeNormal() { 
+                  myVideo.width = 420; 
+              } 
+              </script> 
+            <hr>
+            <audio controls>
+            <source src="D:\PES\python\output.mp3" type="audio/ogg">
+            Your browser does not support the audio element.
+            </audio><br>
+            <iframe width="1400" height="1000" allowfullscreen
+            src="https://www.youtube.com/embed/Jslqn_dgD1g">
+            </iframe>
+            <p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script><br>
+
+<img alt="not found" id="raw" onmouseover="showPosition()">
+<script>
+function showPosition(position) {
+  var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+  var img_url = "https://maps.googleapis.com/maps/api/staticmap?center=
+  "+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";
+document.write(latlon);
+  document.getElementById("raw").src=img_url;
+}</script>
+    </body>
+</html>
