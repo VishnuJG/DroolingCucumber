@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Engineer's Citadel</title>
+    </head>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+          }
+    </script>
+    <style>
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+          }
+          
+          /* Style the buttons inside the tab */
+          .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+          }
+          
+          /* Change background color of buttons on hover */
+          .tab button:hover {
+            background-color: #ddd;
+          }
+          
+          /* Create an active/current tablink class */
+          .tab button.active {
+            background-color: #ccc;
+          }
+          
+          /* Style the tab content */
+          .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border-top: none;
+            width:"100%";
+          }
+          
+        .parallax {
+            /* The image used */
+            background-image: url("paralx.png");
+          
+            /* Set a specific height */
+            height: 500px;
+          
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+          
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+          }
+          
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+          
+          tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+        #home1 {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+          }
+          
+          .city {
+            float: left;
+          }
+          
+          .city a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+          }
+          
+          .city a:hover {
+            background-color: #555555;
+          }
+    </style>
+    <body style="background-color: rgb(187, 95, 95)" onload="openCity(event,'about2')">
+        <h1 style="color:rgb(240, 235, 228);font-size:50px">Engineer's Citadel</h1>
+        <ul id="home1" name="home1" style="position: relative;">
+            <li class="city" onclick="openCity(event,'about2')" ><a href="#contact" >About</a></li>
+            <li class="city" onclick="openCity(event,'lead')"><a href="#contact" >Lead Consultant</a></li>
+            <li class="city" onclick="openCity(event,'contact')"><a href="#contact" >Contact</a></li>
+            <li class="city" onclick="openCity(event,'project')"><a href="#project" >Projects</a></li>
+            <li class="city" onclick="openCity(event,'service')"><a href="#service">services</a></li>
+        </ul>
+        <div id="about2" name="about2" class="tabcontent">
+            <div id="about" name="about" style="font-size: 100%;" class="parallax">
+                
+            </div>
+            <p style="font-size: 30px;color:black"> E’C is a group of experienced free lance engineers from
+                Mechanical, Electrical & Civil disciplines, working together to<br>
+                give design engineering services.<br>
+                <br>
+                E’C is teamed up after about 25 years of industrial work
+                experience to provide affordable, efficient & optimal<br>
+                engineering solutions to specific service segments.</p>
+        </div>
+      
+        <div id="lead" name="lead" class="tabcontent">
+            <img src="D:\Appa\Profilephoto.png" height="300px" width="300px" 
+            alt="Image not found" style="float: right;position:relative;padding-right:10px"
+            >
+            <br>
+            <ul style="font-size: 30px;">
+                <li>Post graduate in Mechanical Engineering (NITK).</li>
+                <li>More than 20 years of industrial experience.</li>
+                <li>Member of Institute of Engineers India.</li>
+                <li>Worked with reputed organizations like<ul>
+                    <li>Suntechnics Energy systems (Conergy), Juwi renewable</li>
+                    <li>Tata Motors, TVS Motors (project planning & execution)</li>
+                    <li>Areas of expertise : system design, planning & execution.</li>
+                </ul></li>
+            </ul>
+        </div>
+     
+        <table id="project" name="project" style="font-size: 30px;border:2px solid pink;" width="100%" class="tabcontent">
+            <tr>
+                <th>Customer</th>
+                <th>Typical Assignment</th>
+            </tr>
+            <tr>
+                <td>Panasonic Life</td>
+                <td>Solar PV Structure design, roof stability analysis.</td>
+            </tr>
+            <tr>
+                <td>Enerparc</td>
+                <td>Solar PV Structure design, roof stability analysis.</td>
+            </tr>
+            <tr>
+                <td>Sterling & Wilson</td>
+                <td>Solar PV Structure design, roof stability analysis.</td>
+            </tr>
+            <tr>
+                <td>Balark Solar</td>
+                <td>Solar PV Structure design & analysis.</td>
+            </tr>
+            <tr>
+                <td>BOSCH Solar</td>
+                <td>Solar PV Structure design & analysis.</td>
+            </tr>
+            <tr>
+                <td>EMMVEE Solar</td>
+                <td>Solar PV Structure design & analysis.</td>
+            </tr>
+            <tr>
+                <td>Prasiddhi Solar</td>
+                <td>Solar PV Structure design & analysis.</td>
+            </tr>
+            <tr>
+                <td>Swelect Energy</td>
+                <td>Solar PV Structure design & analysis.</td>
+            </tr>
+            <tr>
+                <td>TECHSER</td>
+                <td>Solar PV Structure design & analysis.</td>
+            </tr>
+            <tr>
+                <td>CK Airtech</td>
+                <td>Design & analysis of steel chimney.</td>
+            </tr>
+            <tr>
+                <td>Klueber, Mysore</td>
+                <td>Audit of storage rack system.</td>
+            </tr>
+            <tr>
+                <td>Green Energy Tech</td>
+                <td>Development of Cold Galvanising paint.</td>
+            </tr>
+        </table>
+
+
+        <hr>
+        <div id="contact" name="contact" style="float:left">
+            # 42, II-Main, PP Layout,<br>
+
+            BSK-III stage, Bengaluru,<br>
+            
+            India, PIN – 560085<br>
+            
+            Email :<a href="mailto:engineerscitadel@gmail.com"> engineerscitadel@gmail.com</a><br>
+            
+            Ph :<a href="tel:+91 9900552528"> +91 9900552528</a> / <a href="tel:+91 9481262528">+91 9481262528</a><br>
+        </div>
+
+    </body>
+</html>
