@@ -3,23 +3,36 @@
     <head>
         <meta charset="UTF-8">
         <title>Engineer's Citadel</title>
+        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <script>
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;
+            var nameoftab=evt.target.innerHTML;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
               tabcontent[i].style.display = "none";
+              
             }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-              tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
+            
+            document.getElementById(cityName).style.display = "block";            
             evt.currentTarget.className += " active";
+           
           }
     </script>
+    <script> $(document).ready(function() {
+      $('#home1 ul li a').click(function(evt) {
+        $('#home1 ul li').removeClass('selected');
+        $(this).parent('li').addClass('selected');
+      });
+    });</script>
     <style>
+      html {
+        min-width: 1550px;
+        position: relative;
+        }
         .tab {
             overflow: hidden;
             border: 1px solid #ccc;
@@ -50,41 +63,63 @@
           
           /* Style the tab content */
           .tabcontent {
+            margin:20px;
             display: none;
             padding: 6px 12px;
             border-top: none;
             width:"100%";
+            position: static;
           }
-          
-        .parallax {
-            /* The image used */
-            background-image: url("paralx.png");
-          
-            /* Set a specific height */
-            height: 500px;
-          
-            /* Create the parallax scrolling effect */
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+          .tabcontent:hover{
+            background-color:#053d3238;
+            border:7px solid #009879;
           }
+        
           
-        table {
-            font-family: arial, sans-serif;
+          .styled-table {
             border-collapse: collapse;
-            width: 100%;
-          }
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 40%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
           
-          td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-          }
-          
-          tr:nth-child(even) {
-            background-color: #dddddd;
-          }
+        .styled-table thead tr {
+          background-color: #009879;
+          color: #ffffff;
+          text-align: left;
+      }
+          .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+        .styled-table tbody tr {
+          border-bottom: 1px solid #dddddd;
+      }
+      
+      .styled-table tbody tr:nth-of-type(even) {
+          background-color: #f3f3f3;
+      }
+      
+      .styled-table tbody tr:last-of-type {
+          border-bottom: 2px solid #009879;
+      }
+      .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+    }
+    .styled-table tbody tr:hover{
+      background-color: #73b6a8;
+      color:white;
+      
+      font-size: 1.1em;
+    }
+    #home1 a:hover {
+      text-decoration: underline;
+      background: #42bd09;
+      color:#FFFFFF;
+  }
         #home1 {
             list-style-type: none;
             margin: 0;
@@ -93,120 +128,401 @@
             background-color: #333333;
           }
           
+        #home1 a:active {
+          background: #0419d6;
+          color:rgb(246, 245, 250);
+      }
           .city {
             float: left;
           }
           
           .city a {
-            display: block;
+            display: inline-block;
             color: white;
             text-align: center;
             padding: 16px;
-            text-decoration: none;
+            
+          }
+          #home1 ul li.selected {
+            background: #e705af;
+            color:#f006dc;
+        }
+        
+          
+          * {
+            box-sizing: border-box;
           }
           
-          .city a:hover {
-            background-color: #555555;
+          .cc {
+            float: left;
+            width: 100%;
+            margin:auto;
+            height:auto;
+            padding: 5px;
+            border:4px solid #487068;
+            background-color:rgba(223, 245, 243, 0.61);
+            margin: 0 auto;
+            padding: 10px;
+            
           }
+          .cc:hover{
+            border: 7px solid #009879;
+            display:block;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+            background-color:grey;
+            align-content: flex-start;
+          }
+          .cc img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;                           
+          }
+          
+          /* Clearfix (clear floats) */
+          .rr::after {
+            content: "";
+            clear: both;
+            display: table;
+            margin:auto;
+          }
+          
+          .main h1{
+            font-size: 50px;
+            text-align:center;
+            line-height: 0%;
+          }
+          .main{
+            
+            padding-top: 1em;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background-color:rgba(223, 245, 243, 1);
+          }
+         
+        
     </style>
-    <body style="background-color: rgb(255,255,255)" onload="openCity(event,'about2')">
-        <h1 style="color:rgb(0, 0, 0);font-size:50px">Engineer's Citadel</h1>
+    <body style="background-color:rgba(223, 245, 243, 0.61);margin-right:80px;margin-left:80px;" onload="openCity(event,'about2')">
+      <div class="main">
+        <h1 style="text-shadow: 5px 5px 8px grey;color: #00008B;font-family: verdana"><strong>Engineers' Citadel</strong><h2 style="text-shadow: 5px 5px 8px grey;text-align: center;color: #00008B;font-family: verdana;padding-left:12em">...for engineering solutions</h2></h1>
+        <img src="logo.png" style="box-shadow: 10px 10px 5px grey;position:absolute;right:1%;background-color:transparent"/><br><br><br><br>
         <ul id="home1" name="home1" style="position: relative;">
-            <li class="city" onclick="openCity(event,'about2')" ><a href="#contact" >About</a></li>
+            <li class="city" onclick="openCity(event,'about2')" ><a href="#about2" >About</a></li>
+            <li class="city" onclick="openCity(event,'service')"><a href="#service">Services</a></li>
+            <li class="city" onclick="openCity(event,'project')"><a href="#project" >Customers</a></li>
             <li class="city" onclick="openCity(event,'contact')"><a href="#contact" >Contact</a></li>
-            <li class="city" onclick="openCity(event,'project')"><a href="#project" >Projects</a></li>
-            <li class="city" onclick="openCity(event,'service')"><a href="#service">services</a></li>
-            <li class="city" onclick="openCity(event,'lead')"><a href="#contact" >Lead Consultant</a></li>
-        </ul>
-        <div id="about2" name="about2" class="tabcontent">
-            <div id="about" name="about" style="font-size: 100%;" class="parallax">
-                
-            </div>
-            <p style="font-size: 30px;color:black"> E’C is a group of experienced free lance engineers from
-                Mechanical, Electrical & Civil disciplines, working together to<br>
+             </div><hr/>
+        <div id="about2" name="about2" class="tabcontent" style="border:5px solid grey">
+           <div style="border:5px solid grey">
+            <p style="font-size: 30px;color:#000080"> <strong><em>Engineer's Citadel is a group of experienced free lance engineers from
+                Mechanical, Electrical & Civil disciplines, working together to
                 give design engineering services.<br>
                 <br>
-                E’C is teamed up after about 25 years of industrial work
-                experience to provide affordable, efficient & optimal<br>
-                engineering solutions to specific service segments.</p>
-        </div>
-      
-        <div id="lead" name="lead" class="tabcontent">
-            <img src="Profilephoto.png" height="300px" width="300px" 
-            alt="Image not found" style="float: right;position:relative;padding-right:10px"
+                Engineer's Citadel is teamed up after about 25 years of individual industrial work
+                experience to provide affordable, efficient & optimal
+                engineering solutions to specific service segments.</strong></em></p></div><br/>
+                <div style="border:5px solid grey">
+            <hr style="width:5px;color:grey;"/>
+                <img src="Profilephoto.png" height="300px" width="300px" 
+            alt="Image not found" style="box-shadow: 10px 10px 5px grey;float: right;padding-right:10px"
             >
-            <br>
-            <ul style="font-size: 30px;">
-                <li>Post graduate in Mechanical Engineering (NITK).</li>
-                <li>More than 20 years of industrial experience.</li>
-                <li>Member of Institute of Engineers India.</li>
-                <li>Worked with reputed organizations like<ul>
+            <h1 style="text-align:left;font-size: 2em;bottom-padding:1px;margin: 0em"><strong>Girish J R</strong></h1><br/>
+            
+            <ul style="font-size: 28px;top-padding:0em;top-margin:0em;">
+                <li><strong>Chartered Engineer (India), IE-M-1379652.</strong></li>
+                <li>Post graduate in <strong>Mechanical Engineering</strong> (NITK,NITT).</li>
+                <li>More than 25 years of industrial experience.</li>
+                <li>Worked with reputed organizations like<ol>
                     <li>Suntechnics Energy systems (Conergy), Juwi renewable</li>
                     <li>Tata Motors, TVS Motors (project planning & execution)</li>
                     <li>Areas of expertise : system design, planning & execution.</li>
-                </ul></li>
+                </ol></li>
             </ul>
+            <br>
+          </div>
+          <br/>
+          <div style="border:5px solid grey">
+            <h1 style="text-align:left;font-size: 2em;bottom-padding:3px;margin: 2px"><strong>Network</strong></h1><br/>
+            <ul style="font-size: 28px;top-padding:0em;top-margin:0em;">
+              <li>Association with other consulting members to provide complete
+                solution for Solar PV Power plants.</li>
+              <li>Network with civil & electrical service providers to guide the client for
+                selection of right system integrators.</li>
+                <li>Regular interactions with product manufacturers to upgrade service
+                  quality.</li>
+                  <li>Network with paint manufacturers to develop & provide special
+                    performance paints.</li>
+            </ul>
+          </div>
+          <br/>
+          <div style="border:5px solid grey">
+            <h1 style="text-align:left;font-size: 2em;bottom-padding:3px;margin: 2px"><strong>Glossary</strong></h1><br/>
+            <ul style="font-size: 28px;top-padding:0em;top-margin:0em;">
+              <li>Patent application ref : Application No.201741009557 A</li>
+              <li>IJIRSET Papers presented:<ul>
+                <li><a target="_blank" href="http://www.ijirset.com/upload/2017/october/75_Optimization.pdf">http://www.ijirset.com/upload/2017/october/75_Optimization.pdf</a></li>
+                <li><a target="_blank" href="http://www.ijirset.com/upload/2020/april/134_Energy_NC%20(1).PDF">http://www.ijirset.com/upload/2020/april/134_Energy_NC%20(1).PDF</a></li>
+              </ul></li>
+            </ul>
+          </div>
         </div>
-     
-        <table id="project" name="project" style="font-size: 30px;border:2px solid pink;" width="100%" class="tabcontent">
-            <tr>
-                <th>Customer</th>
-                <th>Typical Assignment</th>
-            </tr>
-            <tr>
-                <td>Panasonic Life</td>
-                <td>Solar PV Structure design, roof stability analysis.</td>
-            </tr>
-            <tr>
-                <td>Enerparc</td>
-                <td>Solar PV Structure design, roof stability analysis.</td>
-            </tr>
-            <tr>
-                <td>Sterling & Wilson</td>
-                <td>Solar PV Structure design, roof stability analysis.</td>
-            </tr>
-            <tr>
-                <td>Balark Solar</td>
-                <td>Solar PV Structure design & analysis.</td>
-            </tr>
-            <tr>
-                <td>BOSCH Solar</td>
-                <td>Solar PV Structure design & analysis.</td>
-            </tr>
-            <tr>
-                <td>EMMVEE Solar</td>
-                <td>Solar PV Structure design & analysis.</td>
-            </tr>
-            <tr>
-                <td>Prasiddhi Solar</td>
-                <td>Solar PV Structure design & analysis.</td>
-            </tr>
-            <tr>
-                <td>Swelect Energy</td>
-                <td>Solar PV Structure design & analysis.</td>
-            </tr>
-            <tr>
-                <td>TECHSER</td>
-                <td>Solar PV Structure design & analysis.</td>
-            </tr>
-            <tr>
-                <td>CK Airtech</td>
-                <td>Design & analysis of steel chimney.</td>
-            </tr>
-            <tr>
-                <td>Klueber, Mysore</td>
-                <td>Audit of storage rack system.</td>
-            </tr>
-            <tr>
-                <td>Green Energy Tech</td>
-                <td>Development of Cold Galvanising paint.</td>
-            </tr>
-        </table>
+		<div id="service" name="service" class="tabcontent" >
+            <div style="border:5px solid grey">
+              <h1>Services for Solar PV power plants :</h1>
+            <ul style="font-size: 20px;">
+                <li> Design & analysis of Solar Module Mounting Structures.</li>
+				<li> Inspection services for structures.</li>
+				<li> Design of civil utilities & module cleaning systems.</li>
+				<li> Project Feasibility study / Detailed Project Report (DPR)</li>
+				<li> Site survey / Basic system design.</li>
+				<li> RFQ / Tender support / design recommendation</li>
+				<li> Detailed plant design: Layout, SLD, MMS, BOM.</li>
+				<li> Project management support.</li>
+            </ul>
+          </div><br>
+          
+          <div style="border:5px solid grey">
+                                      <div class="rr">
+                                        <div class="cc">
+                                          <h1 style="width:100%">
+                                            <p>Design of Solar Module Mounting <br/>structure:(Roof top systems)</p>
+                                          </h1>
+                                          <img src="capture.png" alt="Image not found" style="width:auto;height:auto"/>                            </div>
+                                        <div class="cc">
+                                          <h1 style="width:100%">
+                                            <p>Design of Elevated Solar Module mounting structure:(Roof top systems)</p>
+                                          </h1>
+                                          <img src="capture1.png" alt="Image not found" style="width:auto;height:auto;">
+                                        </div>
+                                </div>
+                                <div class="rr">
+                                  <div class="cc">
+                                    <h1 style="width:100%">
+                                      <p>Design of Solar Module mounting structure:
+                                        <br/>(Ground mounted systems)</p>
+                                    </h1>
+                                    <img src="capture2.png" alt="Image not found" style="width:auto;height:auto;">
+                                  </div>
+                                  <div class="cc">
+                                    <h1 style="width:100%">
+                                      <p>Design of structure for Solar Car ports:
+                                        <br/>(Ground mounted & MLCP)</p>
+                                    </h1>
+                                    <img src="capture3.png" alt="Image not found" style="width:auto;height:auto;">
+                                  </div>
+                            </div>
+                            <div class="rr">
+                              <div class="cc">
+                                <h1 style="width:100%">
+                                  <p>Design of single axis solar tracker mechanisms:</p>
+                                </h1>
+                                <img src="capture4.png" alt="Image not found" style="width:auto;height:auto;">
+                              </div>
+                              <div class="cc">
+                                <h1 style="width:100%">
+                                  <p>Design & development of Aluminium extrusions :</p>
+                                </h1>
+                                <img src="capture5.png" alt="Image not found" style="width:auto;height:auto;">
+                              </div>
+                            </div>
+                            <div class="rr">
+                              <div class="cc">
+                                <h1 style="width:100%">
+                                  <p>Design & analysis of steel chimeny structures:</p>
+                                </h1>
+                                <img src="capture6.png" alt="Image not found" style="width:auto;height:auto;">
+                              </div>
+                              <div class="cc">
+                                <h1 style="width:100%">
+                                  <p>Roof stability verification of industrial sheds <br/>for Solar:</p>
+                                </h1>
+                                <img src="capture7.png" alt="Image not found" style="width:auto;height:auto;">
+                              </div>
+                            </div>
+                            <div class="rr">
+                              <div class="cc">
+                                <h1 style="width:100%">
+                                  <p>Design of steel structure building :</p>
+                                </h1>
+                                <img src="capture8.png" alt="Image not found" style="width:auto;height:auto;">
+                              </div>
+                              <div class="cc">
+                                <h1 style="width:100%">
+                                  <p>Design of steel stair case :</p>
+                                </h1>
+                                <img src="capture9.png" alt="Image not found" style="width:auto;height:auto;">
+                              </div>
+                            </div>
+                            <div class="rr">
+                              <div class="cc">
+                                <h1 style="width:100%">
+                                  <p>Design of small CED process plant:</p>
+                                </h1>
+                                <img src="capture10.png" alt="Image not found" style="width:auto;height:auto;">
+                              </div>
+                              <div class="cc">
+                                <h1 style="width:100%">
+                                  <p>Design of water pumping & pipe lines:</p>
+                                </h1>
+                                <img src="capture11.png" alt="Image not found" style="width:auto;height:auto;">
+                              </div>
+                            </div>
+                            <div class="rr">
+                              <div class="cc">
+                                <h1 style="width:100%">
+                                  <p>Design & safety audit of static storage racking systems:</p>
+                                </h1>
+                                <img src="capture12.png" alt="Image not found" style="width:auto;height:auto;">
+                              </div>
+                            </div>
+          </div>
+          <div style="border:5px solid grey">
+            <h2>Products:</h2>
+            <ul style="font-size: 20px;">
+              <li>Z-coat, special Zinc performance paint for steel structures.</li>
+              <li>Alcohol based hand sanitizer liquid in bulk quantity.</li>
+              <li>Water borne Polymer primer for painting application.</li>
+            </ul>
+            <img src="Capture13.PNG" alt="Image not found" style="width:1000px;height:250px;display: block;margin-left: auto;margin-right: auto;width: 50%;"/>
+          </div><br/>
+        </div>
+     <div id="project" name="project" class="tabcontent" style="">
+      <table class="styled-table" style="margin-left:auto;margin-right:auto " >
+        <thead><tr>
+            <th>No</th>
+            <th>Customer</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>Panasonic Life</td>
+        </tr>
+        <tr>
+          <td>2</td>  
+          <td>Enerparc Energy</td>
+            
+        </tr>
+        <tr>
+          <td>3</td>  
+          <td>Sterling & Wilson</td>
+            
+        </tr>
+        <tr>
+          <td>4</td>  
+          <td>Balark Solar</td>
+            
+        </tr>
+        <tr>
+          <td>5</td>  
+          <td>BOSCH Solar</td>
+            
+        </tr>
+        <tr>
+          <td>6</td>  
+          <td>EMMVEE Solar</td>
+            
+        </tr>
+        <tr>
+          <td>7</td>  
+          <td>Prasiddhi Solar</td>
+            
+        </tr>
+        <tr>
+          <td>8</td>  
+          <td>Swelect Energy</td>
+            
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>GREENSOL RENEWABLE</td>
+          
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Green Energy Tech</td>
+        
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Smart Solar Bidgely</td>
+      
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>juwi India Renewable</td>
+      
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>CK Airtech</td>
+      
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Klueber, Mysore</td>
+      
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Vara Coatings</td>
+      
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Gujarat Pipavav Port</td>
+      
+    </tr>
 
-
-        <hr>
-        <div id="contact" name="contact" style="float:left">
-            # 42, II-Main, PP Layout,<br>
+    <tr>
+      <td>17</td>
+      <td>Techser Power</td>
+      
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Swelect Energy</td>
+      
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>PV Line</td>
+      
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>ORB Energy</td>
+      
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>EcoSoch Solar</td>
+      
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Deep Trend</td>
+      
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>RenXSol EcoTech</td>
+      
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>VRM Structures</td>
+      
+    </tr>
+    
+        </tbody>
+    </table>
+            
+      </div>
+		
+       
+        <div id="contact" name="contact" class="tabcontent" style="font-size:1.2em;border:5px solid grey;float:left;width:100%" >
+          <iframe style="widows: 50%" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15554.438430587566!2d77.5495576!3d12.9327944!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2ae4cb1bdbcbff5a!2sENGINEERS%20CITADEL!5e0!3m2!1sen!2sin!4v1609223124471!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <p style="float:right;font-size:2em;"><br># 42, II-Main, PP Layout,<br>
 
             BSK-III stage, Bengaluru,<br>
             
@@ -214,7 +530,7 @@
             
             Email :<a href="mailto:engineerscitadel@gmail.com"> engineerscitadel@gmail.com</a><br>
             
-            Ph :<a href="tel:+91 9900552528"> +91 9900552528</a> / <a href="tel:+91 9481262528">+91 9481262528</a><br>
+            Ph :<a href="tel:+91 9900552528"> +91 9900552528</a> / <a href="tel:+91 9481262528">+91 9481262528</a><br></p>
         </div>
 
     </body>
